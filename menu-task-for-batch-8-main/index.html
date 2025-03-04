@@ -33,40 +33,26 @@
       <!-- menu items -->
       <div class="section-center" id="menu">
         <!-- single item -->
-        <article class="menu-item">
-          <img src="./menu-item.jpeg" alt="menu item" class="photo" />
-          <div class="item-info">
-            <header>
-              <h4>buttermilk pancakes</h4>
-              <h4 class="price">$15</h4>
-            </header>
-            <p class="item-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Repudiandae, sint quam. Et reprehenderit fugiat nesciunt inventore
-              laboriosam excepturi! Quo, officia.
-            </p>
-          </div>
-        </article>
-
-        <article class="menu-item">
-          <img src="./menu-item.jpeg" alt="menu item" class="photo" />
-          <div class="item-info">
-            <header>
-              <h4>buttermilk pancakes</h4>
-              <h4 class="price">$15</h4>
-            </header>
-            <p class="item-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Repudiandae, sint quam. Et reprehenderit fugiat nesciunt inventore
-              laboriosam excepturi! Quo, officia.
-            </p>
-          </div>
-        </article>
-        
-       
+        <div class="mycode" id="myjava"></div>       
       </div>
     </section>
     <!-- javascript -->
-     <script src="app.js"></script> 
+    <script src="app.js"></script> 
+    <script>
+      const mycode = menu.map(a => `<article class="menu-item"><img src="${a.img}" alt="menu item" class="photo" />
+          <div class="item-info">
+            <header>
+              <h4>${a.title}</h4>
+              <h4 class="price">${a.price}</h4>
+            </header>
+            <p class="item-text">
+            ${a.desc}
+            </p>
+            <h5 class="category">${a.category}</h5>
+          </div>
+          </article>`).join("");
+          console.log(mycode);
+          document.getElementById("menu").innerHTML =  mycode;
+    </script>
   </body>
 </html>
