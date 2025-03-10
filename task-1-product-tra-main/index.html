@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filters</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    
+    <button type="button" class="filter-btn" data-id="all" onclick="arrangearray('dec')">Price High to Low</button>
+    <button type="button" class="filter-btn" data-id="all" onclick="arrangearray('asc')">Price Low to High</button>
+
+    <button onclick="sortCompanies('asc')">Sort A to Z</button>
+<button onclick="sortCompanies('desc')">Sort Z to A</button>
+
+    <section class="products">
+      <!-- filters -->
+      <div class="filters-container">
+        <!-- search -->
+        <form class="input-form">
+          <input type="text" class="search-input" placeholder="search..." id="searchTerm" onchange="filterProduct()"/>
+        </form>
+        <!-- categories -->
+        <h5>Company</h5>
+        <article class="companies" id="companiesname">
+        </article>
+      </div>
+      <!-- products -->
+      <div class="products-container" id="productsdetail">
+        <!-- single product -->      
+      </div>
+    </section>
+    <script src="products.js"></script>
+    
+  </body>
+</html>
