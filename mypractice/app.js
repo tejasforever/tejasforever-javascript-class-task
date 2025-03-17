@@ -97,16 +97,8 @@ function display(vb) {
   })
   document.getElementById("menu").innerHTML = t.join(" ");
 }
-const buttons = menu.map(function (v) {
-  return `<button type="button" class="filter-btn" 
-  data-id="breakfast"
-  onclick = "filterMenu('${v.category}')">
-  ${v.category}
-  </button>`
-})
-document.getElementById("btn").innerHTML = buttons.join(" ");
 
-const newMenu = buttons.reduce(function (s, t) {
+const newMenu = menu.reduce(function (s, t) {
   if (!s.includes(t.category)) {
     s.push(t.category);
   }
@@ -114,12 +106,23 @@ const newMenu = buttons.reduce(function (s, t) {
 }, []);
 console.log(newMenu);
 
+const buttons = newMenu.map(function (category) {
+  return `<button type="button" class="filter-btn" 
+  data-id="breakfast"
+  onclick = "filterMenu('${category}')">
+  ${category}
+  </button>`
+})
+document.getElementById("btn").innerHTML = buttons.join(" ");
+
+
 function filterMenu(category) {
   let op = menu.filter(function (va) {
     return va.category == category;
   });
-  display(op)
+  display(op);
 }
+
 function arrangearray(order) {
   menu.sort(function (a, b) {
     if (order == "asc") {
