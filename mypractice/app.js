@@ -1,3 +1,4 @@
+const myCart = [];
 const menu = [
   {
     id: 1,
@@ -92,6 +93,7 @@ function display(vb) {
               <p class="item-text">
                ${v.desc}
               </p>
+              <button class="btn" onClick="addToCart(${v.id})">Order Now</button>
             </div>
           </article>`
   })
@@ -103,7 +105,7 @@ const newMenu = menu.reduce(function (s, t) {
     s.push(t.category);
   }
   return s;
-}, []);
+}, ["all"]);
 console.log(newMenu);
 
 const buttons = newMenu.map(function (category) {
@@ -115,14 +117,16 @@ const buttons = newMenu.map(function (category) {
 })
 document.getElementById("btn").innerHTML = buttons.join(" ");
 
-
 function filterMenu(category) {
-  let op = menu.filter(function (va) {
-    return va.category == category;
-  });
-  display(op);
+  if (category == "all") {
+    display(menu);
+  } else {
+    let op = menu.filter(function (va) {
+      return va.category == category;
+    });
+    display(op);
+  }
 }
-
 function arrangearray(order) {
   menu.sort(function (a, b) {
     if (order == "asc") {
@@ -148,93 +152,108 @@ function lowtohigh() {
 }
 display(menu);
 
+function addToCart (id) {
+  const myDish = myCart.find(function(value){
+    return value.id == id;
+  })
+if(myDish){
+  myDish.quantity += 1;
+}
+else{
+  const newDish = menu.find(function(value){
+    return value.id == id;
+  });
+  newDish.quantity = 1;
+  myCart.push(newDish);
+}
+document.getElementById("cartcount").innerHTML = myCart.length;
+console.log(myCart);
+}
 
 
-
-
-let ab = [1, 2, 2, 5, 4, 1, 6, 3, 4, 8, 8, 7];
-let ta = ab.reduce(function (v, i) {
-  if (!v.includes(i)) {
-    v.push(i);
-  }
-  return v;
-}, []);
+// let ab = [1, 2, 2, 5, 4, 1, 6, 3, 4, 8, 8, 7];
+// let ta = ab.reduce(function (v, i) {
+//   if (!v.includes(i)) {
+//     v.push(i);
+//   }
+//   return v;
+// }, []);
 // console.log(ta);
 
 
-let xy = [
-  {
-    name: "ab",
-    id: 1,
-    weight: 50
-  },
-  {
-    name: "bc",
-    id: 2,
-    weight: 40
-  },
-  {
-    name: "cd",
-    id: 3,
-    weight: 60
-  },
-  {
-    name: "de",
-    id: 4,
-    weight: 50
-  },
-  {
-    name: "ef",
-    id: 5,
-    weight: 40
-  },
-  {
-    name: "fg",
-    id: 6,
-    weight: 60
-  },
-  {
-    name: "gh",
-    id: 7,
-    weight: 40
-  },
-  {
-    name: "hi",
-    id: 8,
-    weight: 50
-  }
-];
+// let xy = [
+//   {
+//     name: "ab",
+//     id: 1,
+//     weight: 50
+//   },
+//   {
+//     name: "bc",
+//     id: 2,
+//     weight: 40
+//   },
+//   {
+//     name: "cd",
+//     id: 3,
+//     weight: 60
+//   },
+//   {
+//     name: "de",
+//     id: 4,
+//     weight: 50
+//   },
+//   {
+//     name: "ef",
+//     id: 5,
+//     weight: 40
+//   },
+//   {
+//     name: "fg",
+//     id: 6,
+//     weight: 60
+//   },
+//   {
+//     name: "gh",
+//     id: 7,
+//     weight: 40
+//   },
+//   {
+//     name: "hi",
+//     id: 8,
+//     weight: 50
+//   }
+// ];
 
-let yz = xy.map(function (bc) {
-  return `<div class="group">
-              <div class="group__item">
-                <h1>Name:    ${bc.name}</h1>
-                <p>id: ${bc.id}</p>
-                <p>weight: ${bc.weight}</p>
-                </div>
-              </div>`});
-// console.log(yz);
-document.getElementById('tj').innerHTML = yz.join("");
+// let yz = xy.map(function (bc) {
+//   return `<div class="group">
+//               <div class="group__item">
+//                 <h1>Name:    ${bc.name}</h1>
+//                 <p>id: ${bc.id}</p>
+//                 <p>weight: ${bc.weight}</p>
+//                 </div>
+//               </div>`});
+// // console.log(yz);
+// document.getElementById('tj').innerHTML = yz.join("");
 
 
-let gh = xy.reduce(function (e, f) {
-  if (!e.includes(f.weight)) {
-    e.push(f.weight);
-  }
-  return e;
-},[]);
-// console.log(gh);
+// let gh = xy.reduce(function (e, f) {
+//   if (!e.includes(f.weight)) {
+//     e.push(f.weight);
+//   }
+//   return e;
+// },[]);
+// // console.log(gh);
 
-let mn = gh.map(function (kl) {
-  return `<li>${kl}</li>`
-})
+// let mn = gh.map(function (kl) {
+//   return `<li>${kl}</li>`
+// })
 
-document.getElementById('weightlist').innerHTML = mn.join("");
+// document.getElementById('weightlist').innerHTML = mn.join("");
 
-let pq = xy.reduce(function (j, k) {
-  if (!j.includes(k)) {
-    j.push(k);
-  }
-  return j;
-}, []);
-// console.log(pq);
+// let pq = xy.reduce(function (j, k) {
+//   if (!j.includes(k)) {
+//     j.push(k);
+//   }
+//   return j;
+// }, []);
+// // console.log(pq);
