@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu</title>
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  <!-- styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <section class="menu">
+    <!-- title -->
+    <div class="title">
+      <h2>our menu</h2>
+      <div class="underline"></div>
+    </div>
+    <button type="button" class="filter-btn" data-id="all" onclick="hightolow('dec')">Price High to Low</button>
+    <button type="button" class="filter-btn" data-id="all" onclick="lowtohigh('asc')">Price Low to High</button>
+    <!-- filter buttons -->
+    <div class="btn-container" id="btn">
+    </div>
+    <!-- menu items -->
+    <div class="section-center" id="menu">
+      <!-- single item -->
+    </div>
+  </section>
+  <div id="mycartcount"></div>
+
+  <!-- <div class="myCartTotal">
+    <h5><strong>Items in Cart: </strong></h5>
+    <span id="cartcount">0</span>
+    <h5><strong>Total: </strong></h5>
+    <span id="total">$0.00</span>
+  </div> -->
+
+  <!-- <div class="section-center">
+    <div id="tj"></div>
+    <ul id="weightlist"></ul>
+    </div> -->
+
+    <!-- <div id="displayproduct"></div> -->
+
+  <!-- javascript -->
+  <script src="app.js"></script>
+  <script src="ad-to-cart.js"></script>
+</body>
+
+</html>
