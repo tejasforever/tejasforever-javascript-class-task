@@ -358,18 +358,18 @@ const tj = [
 ]
 
 
-function displayMe(myProduct){
-}
+// function displayMe(myProduct){
+// }
 
-const productDetail = tj.map(function(ht){
-    return`
-        <div class="product-detail">
-            <h2>${ht.title}</h2>
-            <p>${ht.description}</p>
-            <span>Price: $${ht.price}</span>
-        </div>
-    `
-})
-document.getElementById("displayproduct").innerHTML = productDetail.join("");
+// const productDetail = tj.map(function(ht){
+//     return`
+//         <div class="product-detail">
+//             <h2>${ht.title}</h2>
+//             <p>${ht.description}</p>
+//             <span>Price: $${ht.price}</span>
+//         </div>
+//     `
+// })
+// document.getElementById("displayproduct").innerHTML = productDetail.join("");
 
-displayMe(tj);
+// displayMe(tj);
