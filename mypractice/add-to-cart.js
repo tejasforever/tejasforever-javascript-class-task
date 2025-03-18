@@ -159,7 +159,7 @@ function addToCart (id) {
     return value.id == id;
   })
 if(myDish){
-  myDish.quantity += 1;
+  myDish.quantity = myDish.quantity + 1;
 }
 else{
   const newDish = menu.find(function(value){
