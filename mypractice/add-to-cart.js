@@ -140,18 +140,6 @@ function lowtohigh() {
   display(menu);
 }
 
-// function arrangearray(order) {
-//   menu.sort(function (a, b) {
-//     if (order == "asc") {
-//       return a.price - b.price;
-//     }
-//     else {
-//       return b.price - a.price;
-//     }
-//   })
-//   display(menu);
-// }
-
 display(menu);
 
 function addToCart(id) {
