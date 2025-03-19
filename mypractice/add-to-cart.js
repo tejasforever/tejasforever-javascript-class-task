@@ -189,7 +189,7 @@ const cartItems = myCart.map((v) => `<article class="menu-item cart-item">
 document.getElementById("cartcount").innerHTML = cartItems;
 
 const totalCartPrice = myCart.reduce((a, cartData) => a + cartData.price * cartData.quantity, 0);
-document.getElementById("totalcartvalue").innerHTML = `Total Price of Cart : ${ totalCartPrice}`;
+document.getElementById("totalcartvalue").innerHTML = `Total Price of Cart : $${ totalCartPrice}`;
 
 const totalCartQuantity = myCart.reduce((a, cartData) => a + cartData.quantity, 0);
 document.getElementById("totalcartquantity").innerHTML = `Total Quantity of Cart : ${ totalCartQuantity}`;
