@@ -154,43 +154,45 @@ function lowtohigh() {
 
 display(menu);
 
-function addToCart (id) {
-  const myDish = myCart.find(function(value){
+function addToCart(id) {
+  const myDish = myCart.find(function (value) {
     return value.id == id;
   })
-if(myDish){
-  myDish.quantity += 1;
-}
-else{
-  const newDish = menu.find(function(value){
-    return value.id == id;
-  });
-  newDish.quantity = 1;
-  myCart.push(newDish);
-}
-document.getElementById("mycartcount").innerHTML = myCart.length;
+  if (myDish) {
+    if (myDish.quantity >= 10) {
+      alert("Sorry, you can't order more than 10 of this dish");
+    }
+    else {
+      myDish.quantity = myDish.quantity + 1;
+    }
+  }
+  else {
+    const newDish = menu.find(function (value) {
+      return value.id == id;
+    });
+    newDish.quantity = 1;
+    myCart.push(newDish);
+  }
+  // document.getElementById("mycartcount").innerHTML = myCart.length;
 
-// Generate HTML using map()
-const cartItems = myCart.map((v) => `<article class="menu-item cart-item">
+  const cartItems = myCart.map(function (v) {
+    return `<article class="cart-item">
       <img src="${v.img}" alt="${v.title}" class="photo" />
-      <div class="item-info">
+      <div class="item-info item-text">
         <header>
           <h4>${v.title}</h4>
           <h4 class="price">$${v.price}</h4>
         </header>
-        <p class="item-text">${v.desc}</p>
-        <h4 class="item-text quantity">Numbers of items: ${v.quantity}</h4>
-        <h4 class="item-text quantity">Total Price of items: ${v.price * v.quantity}</h4>
+        <h4 class="item-text quantity">Numbers of Items : </br></br><span class="price"> ${v.quantity} </span></h4>
+        <h4 class="item-text quantity">Items Total Price : </br></br><span class="price"> $${v.price * v.quantity} </span></h4>
       </div>
-      
-    </article>`).join(""); // Join the array of HTML into a single string
+    </article>`}).join("");
 
-// Insert the generated HTML into the DOM
-document.getElementById("cartcount").innerHTML = cartItems;
+  document.getElementById("cartcount").innerHTML = cartItems;
 
-const totalCartPrice = myCart.reduce((a, cartData) => a + cartData.price * cartData.quantity, 0);
-document.getElementById("totalcartvalue").innerHTML = `Total Price of Cart : $${ totalCartPrice}`;
+  const totalCartPrice = myCart.reduce((a, cartData) => a + cartData.price * cartData.quantity, 0);
+  document.getElementById("totalcartvalue").innerHTML = `Total Price of Cart : $${totalCartPrice}`;
 
-const totalCartQuantity = myCart.reduce((a, cartData) => a + cartData.quantity, 0);
-document.getElementById("totalcartquantity").innerHTML = `Total Quantity of Cart : ${ totalCartQuantity}`;
+  const totalCartQuantity = myCart.reduce((a, cartData) => a + cartData.quantity, 0);
+  document.getElementById("totalcartquantity").innerHTML = `Total Quantity of Cart : ${totalCartQuantity}`;
 }
