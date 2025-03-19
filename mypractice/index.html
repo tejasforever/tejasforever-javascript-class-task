@@ -18,8 +18,18 @@
       <h2>our menu</h2>
       <div class="underline"></div>
     </div>
-    <button type="button" class="filter-btn" data-id="all" onclick="arrangearray('dec')">Price High to Low</button>
-    <button type="button" class="filter-btn" data-id="all" onclick="arrangearray('asc')">Price Low to High</button>
+    <button type="button" class="filter-btn" data-id="all" onclick="hightolow()">Price High to Low</button>
+    <button type="button" class="filter-btn" data-id="all" onclick="lowtohigh()">Price Low to High</button>
+    <!-- <div id="mycartcount"></div> -->
+    <div class="cart-section">
+      <div class="">
+        <h2>My Cart</h2>
+        <div class="underline"></div>
+        <h4 class="item-text quantity" id="totalcartvalue"></h4>
+        <h4 class="item-text quantity" id="totalcartquantity"></h4>
+      </div>
+      <div id="cartcount" class="cartcount"></div>
+    </div>
     <!-- filter buttons -->
     <div class="btn-container" id="btn">
     </div>
@@ -28,13 +38,27 @@
       <!-- single item -->
     </div>
   </section>
-  <div class="myCart" id="cartcount"></div>
+  
+
+  <!-- <div class="myCartTotal">
+    <h5><strong>Items in Cart: </strong></h5>
+    <span id="cartcount">0</span>
+    <h5><strong>Total: </strong></h5>
+    <span id="total">$0.00</span>
+  </div> -->
+
   <!-- <div class="section-center">
     <div id="tj"></div>
     <ul id="weightlist"></ul>
     </div> -->
+
+    <!-- <div id="displayproduct"></div> -->
+
   <!-- javascript -->
   <script src="app.js"></script>
+  <script src="add-to-cart.js"></script>
+  <script src="hello.js"></script>
 </body>
 
 </html>
+
