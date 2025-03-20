@@ -243,7 +243,12 @@ Menu
   padding-top: 1rem;
 }
 
-/* Prodcut Add to Cart Section */
+/*
+=============== 
+My Cart Section
+===============
+*/
+
 .myCartTotal {
   position: absolute;
   top: 20%;
@@ -262,19 +267,24 @@ Menu
   transition: var(--transition);
 }
 .cart-section {
-  position: relative;
+  width: 15%;
+  position: absolute;
+  left: 5px;
 }
 .cartcount {
   display: flex;
-  flex-wrap: wrap;
-  column-gap: 1%;
+  row-gap: 10px;
+  flex-direction: column;
+  padding-top: 20px;
 }
 .cartcount .cart-item {
-  padding: 20px;
-  max-width: 32%;
+  padding: 10px;
   background: #fff;
   border-radius: 10px;
   border: solid 2px #c59d5f;
+}
+.cart-section .underline {
+  margin-left: inherit;
 }
 
 @media screen and (min-width: 768px) {
